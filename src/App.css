@@ -1,46 +1,59 @@
 /* Root container: Full-width and full-height with an elegant, subtle background */
 #root {
-  width: 100%; /* Full width of the viewport */
-  min-height: 100vh; /* Full height of the viewport */
-  padding: 0; /* Removed padding to maximize space */
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
   text-align: center;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); /* Subtle light gray to white gradient */
-  background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.02) 0%, transparent 50%); /* Faint gold texture for elegance */
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; /* Elegant, modern sans-serif font */
-  color: #333; /* Dark gray for text, professional and accessible */
-  display: flex; /* Enable Flexbox for centering */
-  align-items: center; /* Vertical centering */
-  justify-content: center; /* Horizontal centering */
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Profiles container: Horizontal layout for multiple cards */
+.profiles-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1400px;
 }
 
 /* Profile card: Elegant, professional card with refined borders and sections */
 .profile-card {
   display: flex;
-  flex-direction: column; /* Stack header and body */
-  align-items: center; /* Center content horizontally */
-  background: #ffffff; /* Pure white for a clean, luxurious base */
-  border: 1px solid #e0e0e0; /* Light gray border for subtlety */
-  border-radius: 16px; /* Softer, more elegant rounded corners */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12); /* Deeper, softer shadow for premium depth */
-  padding: 0; /* Padding handled in sections */
-  max-width: 420px; /* Slightly wider for better proportions */
-  width: 90%; /* Responsive width */
-  overflow: hidden; /* Ensure clean edges */
-  transition: box-shadow 0.3s ease; /* Subtle hover effect for interactivity */
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  padding: 0;
+  flex: 1;
+  min-width: 300px;
+  max-width: 420px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .profile-card:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover for elegance */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
 }
 
 /* Card header: Elegant accent with a gold underline */
 .profile-card__header {
   width: 100%;
-  padding: 2.5rem 2rem 1.5rem; /* Generous padding for spaciousness */
-  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); /* Very subtle gradient */
+  padding: 2.5rem 2rem 1.5rem;
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
   display: flex;
   justify-content: center;
-  position: relative; /* For the accent line */
+  position: relative;
 }
 
 .profile-card__header::after {
@@ -49,23 +62,23 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%; /* Thin accent line */
+  width: 60%;
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, #d4af37 50%, transparent 100%); /* Subtle gold accent */
+  background: linear-gradient(90deg, transparent 0%, #d4af37 50%, transparent 100%);
 }
 
 /* Card image: Polished, professional framing */
 .profile-card__image {
-  width: 130px; /* Slightly larger for prominence */
+  width: 130px;
   height: 130px;
-  border-radius: 50%; /* Circular for a refined look */
-  border: 3px solid #d4af37; /* Elegant gold border */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  transition: transform 0.3s ease; /* Subtle scale on hover */
+  border-radius: 50%;
+  border: 3px solid #d4af37;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .profile-card__image:hover {
-  transform: scale(1.05); /* Gentle zoom for elegance */
+  transform: scale(1.05);
 }
 
 /* Card body: Spacious and refined layout */
@@ -76,29 +89,50 @@
 
 /* Card name: Elegant, bold heading with refined spacing */
 .profile-card__name {
-  font-size: 2rem; /* Larger for emphasis */
-  font-weight: 700; /* Bolder for professionalism */
+  font-size: 2rem;
+  font-weight: 700;
   margin: 0.5rem 0;
-  color: #1a1a1a; /* Near-black for authority */
-  letter-spacing: 0.5px; /* Elegant spacing */
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
   line-height: 1.2;
 }
 
 /* Card bio: Clear, professional text */
 .profile-card__bio {
-  font-size: 1.1rem; /* Slightly larger for readability */
+  font-size: 1.1rem;
   line-height: 1.7;
   margin: 0;
-  color: #555; /* Medium gray for secondary info */
-  font-weight: 400; /* Normal weight for elegance */
-  letter-spacing: 0.3px; /* Subtle spacing */
+  color: #555;
+  font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
 /* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+  .profiles-container {
+    gap: 1.5rem;
+  }
+  .profile-card {
+    min-width: 280px;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 900px) {
+  .profiles-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile-card {
+    max-width: 420px;
+    width: 90%;
+  }
+}
+
 @media (max-width: 600px) {
   .profile-card {
-    max-width: 90%; /* Allow more width on mobile */
-    border-radius: 12px; /* Slightly less rounded on small screens */
+    max-width: 90%;
+    border-radius: 12px;
   }
   .profile-card__header {
     padding: 2rem 1.5rem 1rem;
